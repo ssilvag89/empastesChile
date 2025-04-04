@@ -1,0 +1,213 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    background-color: #161616;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita el scroll horizontal debido al fondo animado */
+  }
+
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes moving-line {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+@keyframes loading-bars {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.hr-hero {
+  border: none;
+  height: 4px;
+  background: linear-gradient(90deg,#ff5e00, #ff0000, #ff7300, #168802, #365031, #e9e506, #ff7300,  #ff5e00);
+  background-size: 200% 100%;
+  animation: moving-line 3s linear infinite;
+}
+
+.hr-title {
+  border: none;
+  height: 2px;
+  background: repeating-linear-gradient(
+    100deg,
+    #168802 0%,
+    #168802 10%,
+    #168802 20%,
+    transparent 60%
+  );
+  background-size: 250% 100%;
+  animation: loading-bars 6s linear infinite;
+  width: 50%;
+
+}
+
+
+h1 {
+  font-family: "Montserrat variant0", Tofu;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-optical-sizing: auto;
+  opacity: 1;
+  line-height: initial;
+  transition-duration: 350ms;
+  text-align: center;
+  font-size: 3rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  color: white;
+}
+
+h2 {
+  font-family: "Montserrat variant0", Tofu;
+  text-align: center;
+}
+
+.h2-title-section {
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 2.25rem;
+}
+
+
+
+
+.main {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+  
+label {
+  color: white;
+  font-family: "Montserrat variant0", Tofu;
+  font-size: large;
+}
+
+
+  /* Services Section */
+  .services {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  .service-item {
+    margin: 2rem 0;
+  }
+  
+  .service-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+@media (max-width: 768px) {
+
+  body {
+    width: 100%;
+  }
+
+  header {
+    padding: 0.5rem;
+  }
+
+  .carousel-caption {
+    font-size: 0.9rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navbar a {
+    font-size: 2rem;
+  }
+
+  .services h2 {
+    font-size: 1.5rem;
+  }
+
+  .service-item h3 {
+    font-size: 1.2rem;
+  }
+}
+  
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 0 0rem;
+    width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .services h2 {
+    font-size: 1.2rem;
+  }
+
+  .carousel-container {
+    width: 100%;
+  }
+
+  form input, form button {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+/*Contact*/
+.contact-section .container {
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .contact-section .container {
+    flex-direction: row;
+  }
+}
+    
+
+  /* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.9s ease-out, transform 0.8s ease-out;
+  color: #161616;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  color: #161616;
+}

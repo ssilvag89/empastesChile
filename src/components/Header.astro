@@ -1,0 +1,188 @@
+---
+import { Image } from 'astro:assets';
+import myImage from '/public/assets/logoec.png'; 
+---
+
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">
+      <Image src={myImage} alt="Logo" class="logo-image" loading="lazy" />
+
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+    <nav class="navbar">
+      <button class="menu-close" aria-label="Close navigation">&times;</button>
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#contacto" class="nav-link">Cotizar</a>
+    </nav>
+  </div>
+</header>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menuClose = document.querySelector(".menu-close");
+    const navbar = document.querySelector(".navbar");
+
+    // Open menu
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.add("active");
+      document.body.style.overflow = "hidden"; // Lock scroll
+    });
+
+    // Close menu
+    menuClose.addEventListener("click", () => {
+      navbar.classList.remove("active");
+      document.body.style.overflow = ""; // Unlock scroll
+    });
+
+    // Close menu when clicking a link
+    navbar.addEventListener("click", (event) => {
+      if (event.target.tagName === "A") {
+        navbar.classList.remove("active");
+        document.body.style.overflow = ""; // Unlock scroll
+      }
+    });
+  });
+</script>
+<style>
+.header {
+    background-color: #161616;
+    transition: all 0.3s ease-in-out;
+    font-size: 1.5rem;
+    position: fixed;
+    opacity: 0.99;
+    top: 10px;
+    width: 99%;
+    color: rgb(0, 0, 0);
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 9999; /* Coloca el menú por encima de otros elementos */
+  }  
+
+  header.shrink {
+    background-color: rgba(16, 16, 16, 0.9); /* Slightly transparent */ 
+  }
+
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 100px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-image {
+    height: 400px;
+    width: 100%;
+  }
+
+  .navbar {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.4s ease-out;
+  }
+
+  .navbar .nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  
+  .navbar .nav-link.active {
+    color: #ffffff;
+    font-weight: bold;
+    border-bottom: 1px solid #0d8f29;
+    justify-content: center; /* Center vertically */
+
+  }
+
+ /* Responsive Styles */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+
+  .menu-close {
+    display: none;
+    font-size: 4rem;
+    background: none;
+    border: none;
+    color: white;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      background-color: rgba(16, 16, 16); /* Slightly transparent */
+      position: fixed;
+      font-size: 2em;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 100%;
+      transform: translateX(100%);
+      overflow-y: auto;
+      box-shadow: -4px 0 6px rgba(0, 0, 0);
+      transition: transform 0.4s ease-out;
+    }
+
+    .navbar a {
+      padding: 1rem;
+      border-bottom: 1px solid #3b3b3b;
+    }
+
+    .navbar a:last-child {
+      border-bottom: none;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .navbar.active {
+      transform: translateX(0);
+      justify-content: center; /* Center vertically */
+
+    }
+
+    .navbar.active .menu-close {
+      display: block;
+    }
+
+    /* Mobile logo */
+    .mobile-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: 1px solid #3b3b3b;
+      }
+  
+      .mobile-logo img {
+        height: 200px;
+      }
+  }
+  
+
+</style>

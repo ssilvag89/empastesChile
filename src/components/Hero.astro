@@ -1,0 +1,157 @@
+---
+import { Image } from 'astro:assets';
+import myImage1 from '/public/assets/carousel/carr_1.png'; 
+import myImage2 from '/public/assets/carousel/carr_2.png'; 
+import myImage3 from '/public/assets/carousel/carr_3.png'; 
+---
+
+<!-- SECCIÓN PRINCIPAL QUE CONTIENE TODAS LAS SECCIONES -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll("h1, img");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = "running";
+      }
+    });
+  });
+
+  elements.forEach((el) => {
+    observer.observe(el);
+  });
+});
+</script>
+<section id="hero" class="main-sections">
+  <div class="parent">
+    <div class="section-wrapper">
+      <div class="section-content">
+        <h1>EXCELENCIA EN ENCUADERNACIÓN Y EMPASTES</h1>
+        <hr class="hr-hero">
+        <h2>Con más de tres décadas de experiencia, transformamos libros y documentos en auténticas obras de arte.</h2>
+      </div>
+      <div class="section-image-container">
+        <Image 
+          src={myImage1} 
+          alt="32 Años de Excelencia en Encuadernación y Empastes"
+          loading="eager" 
+          class="section-image"/>
+      </div>
+    </div>
+    <div class="section-wrapper">
+      <div class="section-image-container">
+        <Image 
+          src={myImage2} 
+          alt="Compromiso y Calidad que Perduran en el Tiempo"
+          loading="eager" 
+          class="section-image"/>
+      </div>
+      <div class="section-content">
+        <h1>COMPROMISO Y CALIDAD QUE PERDURAN EN EL TIEMPO</h1>
+         <hr class="hr-hero">
+        <h2>Nuestra pasión por la calidad garantiza resultados que superan expectativas, cuidando cada detalle para preservar tus libros y documentos con elegancia y distinción.</h2>
+      </div>
+    </div>
+
+    <div class="section-wrapper">
+      <div class="section-content">
+        <h1>CALIDAD Y ELEGANCIA AL MEJOR PRECIO</h1>
+         <hr class="hr-hero">
+        <h2>Ofrecemos servicios de empaste y encuadernación con precios diseñados para ajustarse a tu presupuesto.</h2>
+      </div>
+      <div class="section-image-container">
+        <Image 
+          src={myImage3} 
+          alt="Calidad y Elegancia al Mejor Precio"
+          loading="lazy" 
+          class="section-image"/>
+      </div>
+    </div>
+</div>
+</section> <!-- Cierre del main-sections -->
+<style>
+  .main-sections {
+    width: 100%;
+    height: 100%;
+    padding-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20rem; /* Espaciado entre las secciones */
+  }
+
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+  .vertical-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .section-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 5%;
+  }
+
+  .section-image-container {
+    flex: 1;
+    text-align: center;
+  }
+
+  .section-image {
+    max-width: 100%;
+    height: auto;
+     animation: float 3s ease-in-out infinite;
+  }
+
+  .section-content {
+    flex: 1;
+    color: aliceblue;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-wrapper {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+    
+
+
+}
+
+
+</style>

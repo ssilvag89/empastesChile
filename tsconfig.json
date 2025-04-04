@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                   // Compatibilidad con las últimas características de JavaScript
+    "module": "ESNext",                   // Utilizar módulos ES
+    "moduleResolution": "Node",           // Resolución de módulos al estilo Node.js
+    "jsx": "preserve",                    // Preserva el JSX tal como está para ser procesado por Astro
+    "jsxImportSource": "solid-js",        // Cambia esto si usas React o Preact
+    "strict": true,                       // Activar las verificaciones estrictas de TypeScript
+    "baseUrl": ".",                       // Base de resolución para módulos
+    "paths": {
+      "astro/*": ["./node_modules/astro/types/*"], // Definiciones de tipo para Astro
+      "@/*": ["src/*"]                   // Alias para tus rutas de importación
+    },
+    "types": ["astro/env"],               // Tipos específicos para Astro
+    "skipLibCheck": true,                 // Omitir la verificación de archivos de definición de tipo
+    "allowSyntheticDefaultImports": true, // Permitir imports por defecto para módulos ES
+    "esModuleInterop": true,              // Mejora la interoperabilidad entre módulos CommonJS y ES
+    "forceConsistentCasingInFileNames": true, // Asegurar consistencia en los nombres de archivo
+    "resolveJsonModule": true             // Permitir importar archivos JSON como módulos
+  },
+  "include": [
+    "src/**/*.ts",                        // Incluir archivos TypeScript
+    "src/**/*.astro",                     // Incluir archivos Astro
+    "src/**/*.tsx",                       // Incluir archivos TypeScript con JSX
+    "src/**/*.jsx"                        // Incluir archivos JavaScript con JSX
+  ],
+  "exclude": [
+    "node_modules",                       // Excluir dependencias
+    "dist",                               // Excluir el directorio de salida
+    ".astro",                             // Excluir directorios generados por Astro
+    "build"                               // Excluir cualquier otro directorio generado
+  ]
+}

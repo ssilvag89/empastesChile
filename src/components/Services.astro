@@ -1,0 +1,143 @@
+---
+import { Image } from 'astro:assets';
+import img1 from '/public/assets/servicio_1.png';
+import img2 from '/public/assets/servicio_2.png';
+import img3 from '/public/assets/servicio_3.png';
+import img4 from '/public/assets/servicio_4.png';
+import img5 from '/public/assets/servicio_5.png';
+import img6 from '/public/assets/servicio_6.png';
+---
+
+<section id="servicios" class="gallery-section">
+  <h1>NUESTROS SERVICIOS</h1><hr class="hr-title"><br>
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <div class="image-overlay">
+        <Image src={img1} alt="Restauración de Libros" class="img-service" loading="lazy"/>
+        <div class="overlay-h3"><h3>Tesis</h3></div>
+        <div class="overlay-text">
+          <p>Acabados profesionales para destacar tu trabajo académico.</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="image-overlay">
+        <Image src={img2} alt="Impresiones" class="img-service" loading="lazy"/>
+        <div class="overlay-h3"><h3>Impresiones</h3></div>
+        <div class="overlay-text">
+          <p>Impresión de alta calidad con acabados profesionales y personalizados.</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="image-overlay">
+        <Image src={img3} alt="Empastes en vinilo" class="img-service" loading="lazy"/>
+        <div class="overlay-h3"><h3>Empastes en vinilo</h3></div>
+        <div class="overlay-text">
+          <p>Durabilidad y estilo profesional para documentos y libros.</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="image-overlay">
+        <Image src={img4} alt="Empastes en cuero natural" class="img-service" loading="lazy"/>
+        <div class="overlay-h3"><h3>Empastes cuero natural</h3></div>
+        <div class="overlay-text">
+          <p>Elegancia y resistencia con un acabado artesanal.</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="image-overlay">
+        <Image src={img5} alt="Empastes de tesis" class="img-service" loading="lazy"/>
+        <div class="overlay-h3"><h3>Restauración</h3></div>
+        <div class="overlay-text">
+          <p>Recuperamos la funcionalidad y belleza de tus libros, preservando su valor histórico y sentimental.</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="image-overlay">
+        <Image src={img6} alt="Anillados" class="img-service" loading="lazy"/>
+        <div class="overlay-h3"><h3>Anillados</h3></div>
+        <div class="overlay-text">
+          <p>Presentación práctica y profesional para documentos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+
+  .gallery-section {
+    padding: 7rem 1rem 4rem;
+    background-color: #161616;
+  }
+  
+  .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 50px;
+    padding-top: 1rem;
+    padding-bottom: 6rem;
+  }
+
+  .image-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .img-service {
+    width: 100%;
+    display: block;
+    position: relative;
+  }
+
+  .overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    font-family: "Montserrat variant0", Tofu;
+    
+  }  
+  .overlay-h3 {
+    font-family: "Montserrat variant0", Tofu;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    justify-content: center;
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: -5px 5px 5px rgb(0, 0, 0, 0.5); /* Sombra para mayor contraste */
+  }
+
+  .overlay-text p {
+    font-size: 1.2rem;
+    padding-bottom;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Sombra para mejorar visibilidad */
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+
+
+
+
+
+
+</style>
