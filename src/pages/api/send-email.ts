@@ -20,7 +20,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   const mailOptions = {
     from: email,
-    to: "tulio.silvamartinez@gmail.com",
+    to: "tulio.silvamartinez@gmail.comgit ",
     subject: "Interesado en EmpastesChile",
     text: `Nombre: ${name}\nCorreo: ${email}\nTelefono: ${telefono}\nMensaje:\n${message}`,
   };
